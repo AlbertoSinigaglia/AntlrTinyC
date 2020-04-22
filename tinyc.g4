@@ -7,11 +7,11 @@ statement : decl ';' | assign ';' | branch | out ';' | loop;
 
 loop      : 'while' '(' relation ')' '{' program '}';
 decl      : 'int' ID ;
-assign    : ID '='  arith | relation;
+assign    : ID '='  ( expr | arith | relation );
 out       : 'write' '(' expr ')' | 'write' '(' STRING ')' ;
 branch    : 'if' '(' relation ')' '{' program '}' | 'if' '(' relation ')' '{' program '}' 'else' '{' program '}';
 expr      : NUMBER | ID | input;
-read      : 'read()';
+read      : 'read' '(' ')';
 arith     : expr | arith arithmetic_operator arith | '(' arith ')';
 relation  : arith | relation logic_operator relation | relation comparison_operator relation | '(' relation ')';
 input     : read;
