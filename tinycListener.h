@@ -47,6 +47,9 @@ public:
   virtual void enterArith(tinycParser::ArithContext *ctx) = 0;
   virtual void exitArith(tinycParser::ArithContext *ctx) = 0;
 
+  virtual void enterArith_expr(tinycParser::Arith_exprContext *ctx) = 0;
+  virtual void exitArith_expr(tinycParser::Arith_exprContext *ctx) = 0;
+
   virtual void enterRelation(tinycParser::RelationContext *ctx) = 0;
   virtual void exitRelation(tinycParser::RelationContext *ctx) = 0;
 

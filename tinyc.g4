@@ -13,7 +13,8 @@ branch    : 'if' '(' relation ')' '{' program '}' | 'if' '(' relation ')' '{' pr
 expr      : NUMBER | ID | input;
 read      : 'read' '(' ')';
 arith     : expr | arith arithmetic_operator arith | '(' arith ')';
-relation  : arith arithmetic_operator arith | relation logic_operator relation | relation comparison_operator relation | '(' relation ')';
+arith_expr: arith | expr;
+relation  : arith_expr arithmetic_operator arith_expr | relation logic_operator relation | arith_expr comparison_operator arith_expr | '(' relation ')';
 input     : read;
 arithmetic_operator : ADD | SUB | MUL | DIV | MOD;
 logic_operator : AND | OR | NOT;
